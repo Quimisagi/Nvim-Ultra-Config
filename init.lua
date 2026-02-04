@@ -47,4 +47,10 @@ vim.api.nvim_create_autocmd("UIEnter", {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  callback = function()
+    pcall(vim.treesitter.start)
+  end,
+})
+
 
