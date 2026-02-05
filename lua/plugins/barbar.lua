@@ -11,9 +11,15 @@ return {
     end,
     config = function()
       require("barbar").setup({
-       maximum_length = 18,
-       minimum_length = 8,
-       maximum_padding = 1,
+        maximum_length = 18,
+        minimum_length = 8,
+        maximum_padding = 1,
+
+        icons = {
+          filetype = {
+            enabled = false, -- 🚫 no file icons
+          },
+        },
       })
     end,
   },
