@@ -19,10 +19,6 @@ return {
       })
 
       -- Recommended keymaps (example)
-      local map = vim.keymap.set
-      map("n", "<leader>s", "<cmd>SearchBoxIncSearch<CR>", { desc = "Incremental search" })
-      map("n", "<leader>f", "<cmd>SearchBoxMatchAll<CR>", { desc = "Search all matches" })
-      map("n", "<leader>r", "<cmd>SearchBoxReplace<CR>", { desc = "Search & replace" })
     end,
   },
 }
