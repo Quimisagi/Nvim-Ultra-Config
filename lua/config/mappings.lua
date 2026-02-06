@@ -157,3 +157,38 @@ vim.keymap.set("n", "<leader>bb", "<cmd>BufferPick<CR>", {
   desc = "Buffer: pick",
 })
 
+--Yoink
+vim.keymap.set("n", "p", "<plug>(YoinkPaste_p)", {
+  desc = "Yoink: paste after cursor",
+})
+
+vim.keymap.set("n", "P", "<plug>(YoinkPaste_P)", {
+  desc = "Yoink: paste before cursor",
+})
+
+vim.keymap.set("n", "<A-o>", "<plug>(YoinkPostPasteSwapBack)", {
+  desc = "Yoink: replace paste with previous yank",
+})
+
+vim.keymap.set("n", "<A-p>", "<plug>(YoinkPostPasteSwapForward)", {
+  desc = "Yoink: replace paste with next yank",
+})
+
+--Cut
+vim.keymap.set("n", "m", "d", {
+  desc = "Cut",
+})
+
+vim.keymap.set("x", "m", "d", {
+  desc = "Cut (visual)",
+})
+
+vim.keymap.set("n", "mm", "dd", {
+  desc = "Cut line",
+})
+
+vim.keymap.set("n", "M", "D", {
+  desc = "Cut to end of line",
+})
+
+
