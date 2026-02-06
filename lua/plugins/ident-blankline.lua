@@ -26,21 +26,15 @@ return {
       vim.api.nvim_set_hl(0, "RainbowCyan",   { fg = "#56B6C2" })
     end)
 
-    -- 🔑 THIS IS THE MAGIC
-    hooks.register(
-      hooks.type.SCOPE_HIGHLIGHT,
-      hooks.builtin.scope_highlight_from_extmark
-    )
-
+    hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
     require("ibl").setup({
       indent = {
         char = "│",
-        -- 👇 neutral indent, no color everywhere
         highlight = "IblIndent",
       },
       scope = {
         enabled = true,
-        highlight = highlights, -- 👈 color ONLY inside scope
+        highlight = highlights,
         show_start = false,
         show_end = false,
       },
