@@ -1,13 +1,13 @@
 -- Neo-tree
-vim.keymap.set("n", "<leader>e", function()
+vim.keymap.set("n", "<leader>ee", function()
 	vim.cmd("Neotree toggle filesystem left")
 end, { desc = "Neo-tree Explorer" })
 
-vim.keymap.set("n", "<leader>g", function()
+vim.keymap.set("n", "<leader>eg", function()
 	vim.cmd("Neotree toggle git_status left")
 end, { desc = "Neo-tree Git Status" })
 
-vim.keymap.set("n", "<leader>b", function()
+vim.keymap.set("n", "<leader>eb", function()
 	vim.cmd("Neotree toggle buffers left")
 end, { desc = "Neo-tree Buffers" })
 
@@ -184,3 +184,8 @@ vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", {
 vim.keymap.set("n", "<leader>ci", "<cmd>Lspsaga finder<CR>", {
 	desc = "LSP Finder (implementations & references)",
 })
+
+--Fugitive
+vim.keymap.set("n", "<leader>g", function()
+	vim.cmd("vertical Git")
+end, { desc = "Git Status" })

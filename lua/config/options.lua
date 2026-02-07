@@ -13,17 +13,17 @@ vim.opt.incsearch = true
 
 -- UI response
 vim.opt.updatetime = 300
-vim.opt.timeoutlen = 500	
+vim.opt.timeoutlen = 500
 
 -- Visual clarity
 
-vim.opt.cursorline = true  
+vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
 
 -- Persistent undo
 
-vim.opt.undofile = true      -- persistent undo
+vim.opt.undofile = true -- persistent undo
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.writebackup = false
@@ -42,25 +42,21 @@ vim.cmd("filetype plugin indent on")
 
 -- Diagnostics
 vim.diagnostic.config({
-  signs = true,          -- gutter icons
-  underline = true,      -- red squiggle
-  update_in_insert = false,
-  severity_sort = true,
+	signs = false,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = {
+		border = "rounded",
+		focus = false,
+		scope = "cursor",
+	},
 })
 
 vim.o.updatetime = 300
 
 vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    vim.diagnostic.open_float(nil, {
-      focus = false,
-      scope = "cursor",
-    })
-  end,
-})
-
-vim.diagnostic.config({
-  float = {
-    border = "rounded",
-  },
+	callback = function()
+		vim.diagnostic.open_float()
+	end,
 })
