@@ -57,6 +57,7 @@ return {
         "stylua",
         "prettier",
         "black",
+        "isort",
         "shfmt",
 
         -- Linters
@@ -65,7 +66,7 @@ return {
         "shellcheck",
       },
       auto_update = false,
-      run_on_start = false, -- BIG startup win
+      run_on_start = false, 
     },
   },
 }

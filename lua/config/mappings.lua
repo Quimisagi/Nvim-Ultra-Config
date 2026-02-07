@@ -191,4 +191,44 @@ vim.keymap.set("n", "M", "D", {
   desc = "Cut to end of line",
 })
 
+--LSP
+--Conform
+vim.keymap.set("n", "<leader>f", function()
+  require("conform").format({
+    lsp_fallback = true,
+    async = true,
+    timeout_ms = 500,
+  })
+end, { desc = "Format file (Conform)" })
+
+vim.keymap.set("n", "<C-l>", vim.lsp.buf.definition, {
+  desc = "Go to definition",
+})
+
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {
+  desc = "Code actions",
+})
+vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
+
+--Lspsaga
+
+-- Peek Definition in floating window
+vim.keymap.set("n", "<leader>l", "<cmd>Lspsaga peek_definition<CR>", {
+  desc = "Peek Definition",
+})
+
+-- Hover documentation
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", {
+  desc = "Hover Documentation",
+})
+
+-- Rename (project-wide)
+vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", {
+  desc = "Rename Symbol",
+})
+
+-- Show references
+vim.keymap.set("n", "<leader>ci", "<cmd>Lspsaga finder<CR>", {
+  desc = "LSP Finder (implementations & references)",
+})
 

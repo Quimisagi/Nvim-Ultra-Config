@@ -43,7 +43,7 @@ vim.cmd("filetype plugin indent on")
 -- Diagnostics
 vim.diagnostic.config({
   signs = true,          -- gutter icons
-  underline = true,      -- red squiggles
+  underline = true,      -- red squiggle
   update_in_insert = false,
   severity_sort = true,
 })
@@ -59,3 +59,8 @@ vim.api.nvim_create_autocmd("CursorHold", {
   end,
 })
 
+vim.diagnostic.config({
+  float = {
+    border = "rounded",
+  },
+})
