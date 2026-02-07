@@ -40,4 +40,22 @@ vim.opt.autoindent = true
 
 vim.cmd("filetype plugin indent on")
 
+-- Diagnostics
+vim.diagnostic.config({
+  signs = true,          -- gutter icons
+  underline = true,      -- red squiggles
+  update_in_insert = false,
+  severity_sort = true,
+})
+
+vim.o.updatetime = 300
+
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, {
+      focus = false,
+      scope = "cursor",
+    })
+  end,
+})
 
