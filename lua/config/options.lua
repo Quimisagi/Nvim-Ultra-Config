@@ -60,3 +60,11 @@ vim.api.nvim_create_autocmd("CursorHold", {
 		vim.diagnostic.open_float()
 	end,
 })
+
+--Disable unnecesary stuff
+
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_tutor = 1
+vim.g.loaded_gzip = 1
+vim.g.loaded_tarPlugin = 1
+vim.g.loaded_zipPlugin = 1
