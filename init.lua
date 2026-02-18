@@ -53,3 +53,5 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufEnter" }, {
     pcall(vim.treesitter.start)
   end,
 })
+vim.cmd("filetype plugin indent on")
+
