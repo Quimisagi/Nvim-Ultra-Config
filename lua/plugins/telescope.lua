@@ -1,3 +1,4 @@
+--Quick file search
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -46,20 +47,29 @@ return {
             "%.lock",
           },
         },
-
         pickers = {
           find_files = {
-            hidden = true,
-          },
-          live_grep = {
-            only_sort_text = true,
-          },
-          buffers = {
-            sort_lastused = true,
-            previewer = false,
+            hidden = false,
+            no_ignore = false,
+            mappings = {
+              i = {
+                ["<C-h>"] = function(prompt_bufnr)
+                  local actions = require("telescope.actions")
+                  local state = require("telescope.actions.state")
+
+                  local picker = state.get_current_picker(prompt_bufnr)
+                  picker:refresh(
+                    require("telescope.builtin").find_files({
+                      hidden = not picker.finder.hidden,
+                      no_ignore = not picker.finder.no_ignore,
+                    }),
+                    { reset_prompt = false }
+                  )
+                end,
+              },
+            },
           },
         },
-
         extensions = {
           fzf = {
             fuzzy = true,
@@ -78,4 +88,3 @@ return {
     end,
   },
 }
-
