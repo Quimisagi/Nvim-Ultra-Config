@@ -189,3 +189,8 @@ vim.keymap.set("n", "<leader>ci", "<cmd>Lspsaga finder<CR>", {
 vim.keymap.set("n", "<leader>g", function()
 	vim.cmd("vertical Git")
 end, { desc = "Git Status" })
+
+--Undotree
+vim.keymap.set("n", "<leader>u", function()
+	vim.cmd("UndotreeToggle")
+end, { desc = "Toggle Undotree" })
