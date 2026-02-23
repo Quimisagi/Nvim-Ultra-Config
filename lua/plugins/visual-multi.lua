@@ -1,3 +1,4 @@
+--Multiple cursors
 return {
   "mg979/vim-visual-multi",
   branch = "master",
@@ -7,4 +8,3 @@ return {
     vim.g.VM_default_mappings = 1
   end,
 }
-

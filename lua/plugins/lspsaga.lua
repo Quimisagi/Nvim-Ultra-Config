@@ -1,3 +1,4 @@
+--Tools for improving LSP
 return {
   {
     "nvimdev/lspsaga.nvim", -- IMPORTANT: Switch from 'glepnir' (archived) to 'nvimdev'

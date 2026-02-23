@@ -1,3 +1,4 @@
+--LSP, DAP, formatters etc manager
 return {
   -- Mason: core package manager (loads only when needed)
   {

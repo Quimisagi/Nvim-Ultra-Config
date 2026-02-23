@@ -1,3 +1,4 @@
+--Theme
 return {
   "uhs-robert/oasis.nvim",
   lazy = false,
