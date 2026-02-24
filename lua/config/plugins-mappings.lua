@@ -168,7 +168,7 @@ vim.keymap.set("n", "<leader>f", function()
 end, { desc = "Format file (Conform)" })
 --Lspsaga
 
-vim.keymap.set("n", "<leader>l", "<cmd>Lspsaga peek_definition<CR>", {
+vim.keymap.set("n", "<leader>i", "<cmd>Lspsaga peek_definition<CR>", {
 	desc = "Peek Definition",
 })
 
@@ -193,4 +193,4 @@ end, { desc = "Git Status" })
 --Undotree
 vim.keymap.set("n", "<leader>u", function()
 	vim.cmd("UndotreeToggle")
-end, { desc = "Toggle Undotree" })
+end, { desc = "Git Status" })
