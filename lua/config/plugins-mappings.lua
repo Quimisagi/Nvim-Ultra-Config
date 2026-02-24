@@ -194,3 +194,9 @@ end, { desc = "Git Status" })
 vim.keymap.set("n", "<leader>u", function()
 	vim.cmd("UndotreeToggle")
 end, { desc = "Git Status" })
+
+-- Keymap to manually trigger the reload via Telescope
+vim.keymap.set("n", "<leader>sr", "<cmd>AutoSession restore<cr>", { 
+    desc = "Restore session for current dir"
+})
+
