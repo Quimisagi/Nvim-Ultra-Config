@@ -24,8 +24,11 @@ vim.keymap.set("n", "M", "D", {
 
 --Window nabigation
 
-
 vim.keymap.set("n", "<Leader>h", "<C-w>h", { desc = "Focus left split" })
 vim.keymap.set("n", "<Leader>j", "<C-w>j", { desc = "Focus down split" })
 vim.keymap.set("n", "<Leader>k", "<C-w>k", { desc = "Focus up split" })
 vim.keymap.set("n", "<Leader>l", "<C-w>l", { desc = "Focus right split" })
+
+--Change Leader
+
+vim.g.mapleader = " "
