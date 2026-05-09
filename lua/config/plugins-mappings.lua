@@ -68,13 +68,9 @@ vim.keymap.set("n", "<A-k>", "<cmd>MoveLine(-1)<CR>", {
 	desc = "Move line up",
 })
 
-vim.keymap.set("v", "<A-j>", "<cmd>MoveBlock(1)<CR>", {
-	desc = "Move selection down",
-})
+vim.keymap.set("v", "<A-j>", ":'<,'>MoveBlock(1)<CR>", { desc = "Move selection down" })
 
-vim.keymap.set("v", "<A-k>", "<cmd>MoveBlock(-1)<CR>", {
-	desc = "Move selection up",
-})
+vim.keymap.set("v", "<A-k>", ":'<,'>MoveBlock(-1)<CR>", { desc = "Move selection up" })
 --Barbar
 
 -- Buffer navigation
