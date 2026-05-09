@@ -155,7 +155,7 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {
 vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
 
 --Conform
-vim.keymap.set("n", "<leader>f", function()
+vim.keymap.set("n", "<leader>cf", function()
 	require("conform").format({
 		lsp_fallback = true,
 		async = true,
@@ -189,10 +189,10 @@ end, { desc = "Git Status" })
 --Undotree
 vim.keymap.set("n", "<leader>u", function()
 	vim.cmd("UndotreeToggle")
-end, { desc = "Git Status" })
+end, { desc = "Undo Tree" })
 
 -- Keymap to manually trigger the reload via Telescope
-vim.keymap.set("n", "<leader>ca", "<cmd>AutoSession restore<cr>", { 
+vim.keymap.set("n", "<leader>cs", "<cmd>AutoSession restore<CR>", { 
     desc = "Restore session for current dir"
 })
 
