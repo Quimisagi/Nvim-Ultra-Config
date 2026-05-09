@@ -192,7 +192,7 @@ vim.keymap.set("n", "<leader>u", function()
 end, { desc = "Git Status" })
 
 -- Keymap to manually trigger the reload via Telescope
-vim.keymap.set("n", "<leader>sr", "<cmd>AutoSession restore<cr>", { 
+vim.keymap.set("n", "<leader>ca", "<cmd>AutoSession restore<cr>", { 
     desc = "Restore session for current dir"
 })
 
