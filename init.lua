@@ -55,3 +55,13 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufEnter" }, {
 })
 vim.cmd("filetype plugin indent on")
 
+-- Color changes
+
+vim.api.nvim_set_hl(0, 'BufferCurrent', { fg = '#89b4fa', bg = '#313244', bold = true })
+
+-- Set the color for the modified/dirty state (e.g., a distinct Red or Orange)
+-- This targets the text when a buffer has unsaved changes
+vim.api.nvim_set_hl(0, 'BufferCurrentMod', { fg = '#f38ba8', bg = '#313244', bold = true })
+vim.api.nvim_set_hl(0, 'BufferVisibleMod', { fg = '#f38ba8', bg = '#181825' })
+vim.api.nvim_set_hl(0, 'BufferInactiveMod', { fg = '#eba0ac', bg = '#11111b' })
+
