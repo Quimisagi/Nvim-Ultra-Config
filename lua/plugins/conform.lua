@@ -31,6 +31,7 @@ return {
       yaml = { "prettier" },
       bash = { "shfmt" },
       rust = { "rustfmt" },
+      ruby = { "rubocop" },
     },
   },
 }

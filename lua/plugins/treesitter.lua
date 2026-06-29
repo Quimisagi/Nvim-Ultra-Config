@@ -33,6 +33,7 @@ return {
 				"graphql",
 				"sql",
 				"java",
+				"ruby",
 				"toml",
 				"sh",
 			},

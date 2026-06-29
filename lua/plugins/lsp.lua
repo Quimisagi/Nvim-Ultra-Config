@@ -27,6 +27,10 @@ return {
       vim.lsp.config("pyright", {
         capabilities = capabilities,
       })
+
+      vim.lsp.config("ruby_ls", {
+        capabilities = capabilities,
+      })
     end,
   },
 }

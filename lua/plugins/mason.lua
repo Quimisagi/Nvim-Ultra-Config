@@ -39,6 +39,9 @@ return {
         -- Python
         "pyright",
 
+        -- Ruby
+        "ruby_ls",
+
         -- Others
         "yamlls",
         "marksman",
@@ -65,6 +68,9 @@ return {
         "eslint_d",
         "flake8",
         "shellcheck",
+
+        -- Ruby
+        "rubocop",
       },
       auto_update = false,
       run_on_start = false, 
