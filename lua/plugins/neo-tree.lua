@@ -20,7 +20,7 @@ return {
 					hijack_netrw_behavior = "open_default",
 					use_libuv_file_watcher = true,
 				},
-			})
-		end,
-	},
+		})
+	end,
+},
 }

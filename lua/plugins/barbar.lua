@@ -17,7 +17,7 @@ return {
 
         icons = {
           filetype = {
-            enabled = false, -- 🚫 no file icons
+            enabled = false,
           },
         },
       })
