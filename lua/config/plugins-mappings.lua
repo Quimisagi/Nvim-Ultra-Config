@@ -190,6 +190,10 @@ vim.keymap.set("n", "<leader>gh", function()
 	require("gitsigns").preview_hunk()
 end, { desc = "Preview hunk diff (float)" })
 
+vim.keymap.set("n", "<leader>gb", function()
+	require("telescope.builtin").git_branches()
+end, { desc = "Git Branches" })
+
 vim.keymap.set("n", "<leader>gL", function()
 	local bufnr = vim.api.nvim_create_buf(false, true)
 	vim.bo[bufnr].filetype = "git"
