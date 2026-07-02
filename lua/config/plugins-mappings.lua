@@ -186,6 +186,10 @@ vim.keymap.set("n", "<leader>g", function()
 	vim.cmd("vertical Git")
 end, { desc = "Git Status" })
 
+vim.keymap.set("n", "<leader>gh", function()
+	require("gitsigns").preview_hunk()
+end, { desc = "Preview hunk diff (float)" })
+
 --Undotree
 vim.keymap.set("n", "<leader>u", function()
 	vim.cmd("UndotreeToggle")
