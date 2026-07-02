@@ -190,6 +190,37 @@ vim.keymap.set("n", "<leader>gh", function()
 	require("gitsigns").preview_hunk()
 end, { desc = "Preview hunk diff (float)" })
 
+vim.keymap.set("n", "<leader>gL", function()
+	local bufnr = vim.api.nvim_create_buf(false, true)
+	vim.bo[bufnr].filetype = "git"
+	local win = vim.api.nvim_open_win(bufnr, true, {
+		relative = "editor",
+		width = math.floor(vim.o.columns * 0.85),
+		height = math.floor(vim.o.lines * 0.85),
+		row = math.floor(vim.o.lines * 0.075),
+		col = math.floor(vim.o.columns * 0.075),
+		style = "minimal",
+		border = "rounded",
+		title = " Git Log ",
+	})
+	vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "Loading..." })
+
+	vim.system({ "git", "log" }, { text = true }, function(result)
+		vim.schedule(function()
+			if not vim.api.nvim_buf_is_valid(bufnr) then return end
+			if result.code == 0 then
+				local lines = vim.split(result.stdout, "\n", { plain = true })
+				if #lines > 0 and lines[#lines] == "" then table.remove(lines) end
+				vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+				vim.bo[bufnr].modified = false
+				vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = bufnr, silent = true, desc = "Close log" })
+			else
+				vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "Error: " .. (result.stderr or "unknown") })
+			end
+		end)
+	end)
+end, { desc = "Git Log (float)" })
+
 --Undotree
 vim.keymap.set("n", "<leader>u", function()
 	vim.cmd("UndotreeToggle")

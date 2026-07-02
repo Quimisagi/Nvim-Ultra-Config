@@ -88,6 +88,47 @@ return {
 			end,
 		})
 
+		-- Float :Git log output when invoked from Fugitive
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "git",
+			callback = function()
+				local first = vim.api.nvim_buf_get_lines(0, 0, 1, false)
+				if #first > 0 and first[1]:match("^commit ") then
+					vim.schedule(function()
+						local win = vim.api.nvim_get_current_win()
+						vim.api.nvim_win_set_config(win, {
+							relative = "editor",
+							width = math.floor(vim.o.columns * 0.85),
+							height = math.floor(vim.o.lines * 0.85),
+							row = math.floor(vim.o.lines * 0.075),
+							col = math.floor(vim.o.columns * 0.075),
+							style = "minimal",
+							border = "rounded",
+							title = " Git Log ",
+						})
+						vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = 0, silent = true, desc = "Close log" })
+					end)
+				end
+			end,
+		})
+
+		-- After successful commit, focus fugitive status window
+		vim.api.nvim_create_autocmd("BufWipeout", {
+			callback = function()
+				if vim.bo.filetype == "gitcommit" then
+					vim.schedule(function()
+						for _, win in ipairs(vim.api.nvim_list_wins()) do
+							local buf = vim.api.nvim_win_get_buf(win)
+							if vim.api.nvim_buf_get_option(buf, "filetype") == "fugitive" then
+								vim.api.nvim_set_current_win(win)
+								break
+							end
+						end
+					end)
+				end
+			end,
+		})
+
 		-- Automatically close Fugitive windows when losing focus
 		vim.api.nvim_create_autocmd("BufLeave", {
 			pattern = "*",
@@ -97,7 +138,7 @@ return {
 					vim.schedule(function()
 						-- Double check we didn't accidentally close Neovim entirely
 						local target_ft = vim.bo.filetype
-						if vim.api.nvim_buf_is_valid(0) and target_ft ~= "fugitive" and target_ft ~= "gitcommit" and target_ft ~= "gitpush" then
+						if vim.api.nvim_buf_is_valid(0) and target_ft ~= "fugitive" and target_ft ~= "gitcommit" and target_ft ~= "gitpush" and target_ft ~= "gitlog" and target_ft ~= "git" then
 							pcall(vim.cmd, "cclose") -- Closes quickfix if applicable
 							-- Find and close the fugitive buffer window
 							for _, win in ipairs(vim.api.nvim_list_wins()) do
