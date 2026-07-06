@@ -5,10 +5,17 @@ return {
     config = function()
         require("auto-session").setup({
             auto_save_enabled = true,
-            auto_restore_enabled = false, -- Disable automatic loading on startup
+            auto_restore_enabled = false,
             auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
-            
-            -- Optional: configure how the session lens looks
+
+            close_filetypes_on_save = { "neo-tree" },
+
+            post_restore_cmds = {
+                function()
+                    pcall(vim.cmd, "Neotree close")
+                end,
+            },
+
             session_lens = {
                 theme_conf = { border = true },
                 previewer = false,
