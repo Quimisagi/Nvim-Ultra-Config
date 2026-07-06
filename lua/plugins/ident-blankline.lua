@@ -24,6 +24,7 @@ return {
       vim.api.nvim_set_hl(0, "RainbowBlue",   { fg = "#61AFEF" })
       vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
       vim.api.nvim_set_hl(0, "RainbowCyan",   { fg = "#56B6C2" })
+      vim.api.nvim_set_hl(0, "IblIndent",     { fg = "#303441" })
     end)
 
     hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
@@ -54,9 +55,5 @@ return {
         },
       },
     })
-
-    -- Subtle default indent color
-    vim.api.nvim_set_hl(0, "IblIndent", { fg = "#3b3f4c" })
-  end,
+end,
 }
-
