@@ -11,7 +11,7 @@ return {
       local capabilities =
         require("cmp_nvim_lsp").default_capabilities()
 
-      -- NEW API (Neovim 0.11+)
+      -- Neovim 0.11+ LSP config API
       vim.lsp.config("ts_ls", {
         capabilities = capabilities,
       })
@@ -31,6 +31,9 @@ return {
       vim.lsp.config("ruby_ls", {
         capabilities = capabilities,
       })
+
+      -- Enable servers (required in 0.11+ — config alone does not start them)
+      vim.lsp.enable({ "ts_ls", "html", "cssls", "pyright", "ruby_ls" })
     end,
   },
 }

@@ -13,6 +13,7 @@ vim.opt.incsearch = true
 
 -- UI response
 vim.opt.updatetime = 300
+vim.opt.fillchars:append({ eob = " " })
 vim.opt.timeoutlen = 500
 
 -- Visual clarity
@@ -38,8 +39,6 @@ vim.opt.softtabstop = 2
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 
-vim.cmd("filetype plugin indent on")
-
 -- Diagnostics
 vim.diagnostic.config({
 	signs = false,
@@ -52,8 +51,6 @@ vim.diagnostic.config({
 		scope = "cursor",
 	},
 })
-
-vim.o.updatetime = 300
 
 vim.api.nvim_create_autocmd("CursorHold", {
 	callback = function()
