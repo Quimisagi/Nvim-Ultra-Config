@@ -191,7 +191,7 @@ vim.keymap.set("n", "<leader>ci", "<cmd>Lspsaga finder<CR>", {
 })
 
 --Fugitive
-vim.keymap.set("n", "<leader>g", function()
+vim.keymap.set("n", "<leader>G", function()
   vim.cmd("vertical Git")
 end, { desc = "Git Status" })
 
