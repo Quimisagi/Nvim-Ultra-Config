@@ -54,7 +54,9 @@ vim.diagnostic.config({
 
 vim.api.nvim_create_autocmd("CursorHold", {
 	callback = function()
-		vim.diagnostic.open_float()
+		if vim.bo.filetype ~= "gitcommit" then
+			vim.diagnostic.open_float()
+		end
 	end,
 })
 

@@ -84,6 +84,7 @@ return {
 						style = "minimal",
 						border = "rounded",
 					})
+					vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = 0, silent = true, desc = "Close commit" })
 				end)
 			end,
 		})
@@ -112,22 +113,7 @@ return {
 			end,
 		})
 
-		-- After successful commit, focus fugitive status window
-		vim.api.nvim_create_autocmd("BufWipeout", {
-			callback = function()
-				if vim.bo.filetype == "gitcommit" then
-					vim.schedule(function()
-						for _, win in ipairs(vim.api.nvim_list_wins()) do
-							local buf = vim.api.nvim_win_get_buf(win)
-							if vim.api.nvim_buf_get_option(buf, "filetype") == "fugitive" then
-								vim.api.nvim_set_current_win(win)
-								break
-							end
-						end
-					end)
-				end
-			end,
-		})
+
 
 		-- Automatically close Fugitive windows when losing focus
 		vim.api.nvim_create_autocmd("BufLeave", {
