@@ -53,7 +53,7 @@ return {
             no_ignore = false,
             mappings = {
               i = {
-                ["<C-h>"] = function(prompt_bufnr)
+                ["."] = function(prompt_bufnr)
                   local actions = require("telescope.actions")
                   local state = require("telescope.actions.state")
 

@@ -14,6 +14,9 @@ return {
         window = {
           position = "float",
           width = 30,
+          mappings = {
+            ["."] = "toggle_hidden",
+          },
         },
         filesystem = {
           follow_current_file = { enabled = true },
